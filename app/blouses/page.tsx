@@ -4,10 +4,11 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const items = [
-    { id: 1, name: 'Aari Work Blouse 01', image: '/images/IMG-20251217-WA0014.jpg' },
-    { id: 2, name: 'Bridal Blouse 02', image: '/images/IMG-20251217-WA0015.jpg' },
-    { id: 3, name: 'Designer Blouse 03', image: '/images/IMG-20251217-WA0005.jpg' },
-    { id: 4, name: 'Embroidered Blouse 04', image: '/images/IMG-20251217-WA0006.jpg' },
+    { id: 1, name: 'Cream & Gold Aari Work', image: '/images/blouse-cream-work-01.jpg' },
+    { id: 2, name: 'Detailed Sleeve Embellishment', image: '/images/blouse-cream-details-02.jpg' },
+    { id: 3, name: 'Lavender Floral Work', image: '/images/blouse-purple-work-03.jpg' },
+    { id: 4, name: 'Red Bridal Back Design', image: '/images/blouse-red-back-04.jpg' },
+    { id: 5, name: 'Red Bridal Sleeve Detail', image: '/images/blouse-red-sleeve-05.jpg' },
 ];
 
 export default function BlousesPage() {

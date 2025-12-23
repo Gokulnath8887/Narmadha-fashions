@@ -20,7 +20,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
     title: 'Narmadha Fashion Home | Luxury Couture & Bridal Design',
-    description: 'Experience the epitome of luxury fashion at Narmadha Fashion Home. Bespoke bridal wear, couture gowns, and elegant fabrics crafted for the modern muse.',
+    description: 'Experience the epitome of luxury fashion at Narmadha Fashion Home. Bespoke bridal wear and elegant fabrics crafted for the modern muse.',
 };
 
 export default function RootLayout({

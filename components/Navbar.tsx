@@ -12,8 +12,6 @@ const navItems = [
     { name: 'Products', href: '/products' },
     { name: 'Fabrics', href: '/fabrics' },
     { name: 'Frocks', href: '/frocks' },
-    { name: 'Gowns', href: '/gowns' },
-    { name: 'Tops', href: '/tops' },
     { name: 'Blouses', href: '/blouses' },
     { name: 'Kids Fashion', href: '/kids-fashion' },
     { name: 'Customized Gifts', href: '/customized-gifts' },

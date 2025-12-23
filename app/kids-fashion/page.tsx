@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const kidsItems = [
-    { id: 1, name: 'Mini Silk Frock', image: '/images/IMG-20251217-WA0005.jpg' },
-    { id: 2, name: 'Festive Lehenga', image: '/images/IMG-20251217-WA0006.jpg' },
-    { id: 3, name: 'Velvet Gown', image: '/images/IMG-20251217-WA0007.jpg' },
-    { id: 4, name: 'Embroidered Kurta', image: '/images/IMG-20251217-WA0008.jpg' },
+    { id: 1, name: 'Pink Princess Gown', image: '/images/kids-pink-dress-01.jpg' },
+    { id: 2, name: 'Blue Floral Tulle', image: '/images/kids-blue-floral-02.jpg' },
+    { id: 3, name: 'Red Checks Pattu Pavadai', image: '/images/kids-red-pattu-03.jpg' },
+    { id: 4, name: 'Royal Blue Velvet Vest Set', image: '/images/kids-blue-vest-04.jpg' },
 ];
 
 export default function KidsFashionPage() {

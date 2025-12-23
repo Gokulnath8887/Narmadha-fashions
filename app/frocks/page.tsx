@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const items = [
-    { id: 1, name: 'Designer Frock 01', image: '/images/IMG-20251217-WA0005.jpg' },
-    { id: 2, name: 'Designer Frock 02', image: '/images/IMG-20251217-WA0006.jpg' },
-    { id: 3, name: 'Designer Frock 03', image: '/images/IMG-20251217-WA0007.jpg' },
+    { id: 1, name: 'Royal Blue Beaded Gown', image: '/images/frock-blue-01.jpg' },
+    { id: 2, name: 'Pink Lace Top with Skirt', image: '/images/frock-pink-02.jpg' },
+    { id: 3, name: 'Nature Inspired Pleated Frock', image: '/images/frock-leaf-03.jpg' },
 ];
 
 export default function FrocksPage() {
