@@ -1,13 +1,20 @@
+
 'use client';
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+// Static imports for better performance and blur placeholders
+import pinkDress01 from '../../public/images/kids-pink-dress-01.jpg';
+import blueFloral02 from '../../public/images/kids-blue-floral-02.jpg';
+import redPattu03 from '../../public/images/kids-red-pattu-03.jpg';
+import blueVest04 from '../../public/images/kids-blue-vest-04.jpg';
+
 const kidsItems = [
-    { id: 1, name: 'Pink Princess Gown', image: '/images/kids-pink-dress-01.jpg' },
-    { id: 2, name: 'Blue Floral Tulle', image: '/images/kids-blue-floral-02.jpg' },
-    { id: 3, name: 'Red Checks Pattu Pavadai', image: '/images/kids-red-pattu-03.jpg' },
-    { id: 4, name: 'Royal Blue Velvet Vest Set', image: '/images/kids-blue-vest-04.jpg' },
+    { id: 1, name: 'Pink Princess Gown', image: pinkDress01 },
+    { id: 2, name: 'Blue Floral Tulle', image: blueFloral02 },
+    { id: 3, name: 'Red Checks Pattu Pavadai', image: redPattu03 },
+    { id: 4, name: 'Royal Blue Velvet Vest Set', image: blueVest04 },
 ];
 
 export default function KidsFashionPage() {
@@ -40,6 +47,9 @@ export default function KidsFashionPage() {
                                 src={item.image}
                                 alt={item.name}
                                 fill
+                                placeholder="blur"
+                                priority
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                             />
                             <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center">

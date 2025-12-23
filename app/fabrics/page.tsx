@@ -1,13 +1,20 @@
+
 'use client';
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+// Static assets
+import kanchipuramImg from '../../public/images/blouse-cream-work-01.jpg';
+import banarasiImg from '../../public/images/blouse-red-back-04.jpg'; // Replaced missing
+import rawSilkImg from '../../public/images/IMG-20251217-WA0013.jpg';
+import organzaImg from '../../public/images/IMG-20251217-WA0009.jpg';
+
 const fabrics = [
-    { id: 1, name: 'Kanchipuram Silk', image: '/images/IMG-20251217-WA0006.jpg', desc: 'Pure handloom silk with certified zari.' },
-    { id: 2, name: 'Banarasi Brocade', image: '/images/IMG-20251217-WA0007.jpg', desc: 'Opulent weaves perfect for heavy embroidery.' },
-    { id: 3, name: 'Raw Silk', image: '/images/IMG-20251217-WA0013.jpg', desc: 'Textured perfection for structured garments.' },
-    { id: 4, name: 'Organza', image: '/images/IMG-20251217-WA0009.jpg', desc: 'Sheer elegance for a dreamy look.' },
+    { id: 1, name: 'Kanchipuram Silk', image: kanchipuramImg, desc: 'Pure handloom silk with certified zari.' },
+    { id: 2, name: 'Banarasi Brocade', image: banarasiImg, desc: 'Opulent weaves perfect for heavy embroidery.' },
+    { id: 3, name: 'Raw Silk', image: rawSilkImg, desc: 'Textured perfection for structured garments.' },
+    { id: 4, name: 'Organza', image: organzaImg, desc: 'Sheer elegance for a dreamy look.' },
 ];
 
 export default function FabricsPage() {
@@ -34,11 +41,13 @@ export default function FabricsPage() {
             <div className="space-y-32">
                 {fabrics.map((fabric, index) => (
                     <div key={fabric.id} className={`flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-12 items-center`}>
-                        <div className="w-full md:w-1/2 relative h-[500px] group overflow-hidden">
+                        <div className="w-full md:w-1/2 relative h-[500px] group overflow-hidden rounded-sm bg-gray-100">
                             <Image
                                 src={fabric.image}
                                 alt={fabric.name}
                                 fill
+                                placeholder="blur"
+                                sizes="(max-width: 768px) 100vw, 50vw"
                                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                             />
                         </div>

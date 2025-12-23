@@ -1,19 +1,28 @@
+
 'use client';
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
+// Static imports
+import bangles04 from '../../public/images/custom-gift-bangles-04.jpg';
+import bangles01 from '../../public/images/custom-gift-bangles-01.jpg';
+import bangles02 from '../../public/images/custom-gift-bangles-02.jpg';
+import bangles03 from '../../public/images/custom-gift-bangles-03.jpg';
+
 export default function CustomizedGiftsPage() {
     return (
         <div className="min-h-screen pt-20 pb-20 px-6 md:px-12 lg:px-20 bg-background">
             <div className="max-w-6xl mx-auto">
                 {/* Hero */}
-                <div className="relative h-[60vh] w-full mb-20 overflow-hidden rounded-sm">
+                <div className="relative h-[60vh] w-full mb-20 overflow-hidden rounded-sm bg-gray-100">
                     <Image
-                        src="/images/custom-gift-bangles-04.jpg"
+                        src={bangles04}
                         alt="Customized Gifting"
                         fill
+                        priority
+                        placeholder="blur"
                         className="object-cover"
                     />
                     <div className="absolute inset-0 bg-black/50 flex items-center justify-center text-center">
@@ -63,10 +72,10 @@ export default function CustomizedGiftsPage() {
                     <h2 className="font-serif text-4xl text-secondary text-center mb-12">Recent Creations</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
-                            { src: '/images/custom-gift-bangles-01.jpg', alt: 'Customized Bangles Stack' },
-                            { src: '/images/custom-gift-bangles-02.jpg', alt: 'Gold Bangles Flat Lay' },
-                            { src: '/images/custom-gift-bangles-03.jpg', alt: 'Pink Designer Bangles' },
-                            { src: '/images/custom-gift-bangles-04.jpg', alt: 'Pink and Orange Bangles' },
+                            { src: bangles01, alt: 'Customized Bangles Stack' },
+                            { src: bangles02, alt: 'Gold Bangles Flat Lay' },
+                            { src: bangles03, alt: 'Pink Designer Bangles' },
+                            { src: bangles04, alt: 'Pink and Orange Bangles' },
                         ].map((item, index) => (
                             <motion.div
                                 key={index}
@@ -74,12 +83,14 @@ export default function CustomizedGiftsPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="group relative h-[400px] overflow-hidden"
+                                className="group relative h-[400px] overflow-hidden bg-gray-100 rounded-md"
                             >
                                 <Image
                                     src={item.src}
                                     alt={item.alt}
                                     fill
+                                    placeholder="blur"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                                 />
                                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

@@ -1,7 +1,12 @@
+
 'use client';
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+
+// Static assets
+import aboutStoryImg from '../../public/images/IMG-20251217-WA0011.jpg';
+import designerImg from '../../public/images/IMG-20251217-WA0012.jpg'; // Replaced missing
 
 export default function AboutPage() {
     return (
@@ -30,12 +35,14 @@ export default function AboutPage() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative h-[600px] w-full rounded-sm overflow-hidden"
+                        className="relative h-[600px] w-full rounded-sm overflow-hidden bg-gray-100"
                     >
                         <Image
-                            src="/images/IMG-20251217-WA0011.jpg" // Using another uploaded image
+                            src={aboutStoryImg} // Using another uploaded image
                             alt="About Narmadha Fashion"
                             fill
+                            placeholder="blur"
+                            priority
                             className="object-cover"
                         />
                     </motion.div>
@@ -63,13 +70,15 @@ export default function AboutPage() {
                     </div>
                 </section>
 
+
                 {/* Designer Spotlight */}
                 <section className="bg-surface/30 p-8 md:p-16 rounded-sm border border-white/5 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div className="relative h-[500px] w-full grayscale hover:grayscale-0 transition-all duration-700">
+                    <div className="relative h-[500px] w-full grayscale hover:grayscale-0 transition-all duration-700 bg-gray-100 rounded-sm overflow-hidden">
                         <Image
-                            src="/images/IMG-20251217-WA0015.jpg" // Using another uploaded image 
+                            src={designerImg} // Using another uploaded image 
                             alt="Designer at Work"
                             fill
+                            placeholder="blur"
                             className="object-cover"
                         />
                     </div>

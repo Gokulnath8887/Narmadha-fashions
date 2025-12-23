@@ -1,3 +1,4 @@
+
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -5,12 +6,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
 
-// Using the images we just copied to public/images
-const heroImages = [
-    '/images/IMG-20251217-WA0005.jpg',
-    '/images/IMG-20251217-WA0006.jpg',
-    '/images/IMG-20251217-WA0007.jpg',
-];
+// Static assets for instant loading
+import heroMain from '../../public/images/blouse-red-sleeve-05.jpg';
+import bridalHero from '../../public/images/blouse-cream-work-01.jpg';
+import kidsHero from '../../public/images/kids-pink-dress-01.jpg';
 
 export default function Home() {
     const containerRef = useRef(null);
@@ -25,7 +24,7 @@ export default function Home() {
     return (
         <div ref={containerRef} className="relative w-full">
             {/* Hero Section */}
-            <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+            <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-zinc-900">
                 {/* Parallax Background Image */}
                 <motion.div
                     style={{ y, opacity }}
@@ -33,11 +32,12 @@ export default function Home() {
                 >
                     <div className="absolute inset-0 bg-black/40 z-10" /> {/* Overlay */}
                     <Image
-                        src={heroImages[0]} // Using the first image as main hero
+                        src={heroMain}
                         alt="Luxury Fashion Hero"
                         fill
-                        className="object-cover"
+                        placeholder="blur"
                         priority
+                        className="object-cover"
                     />
                 </motion.div>
 
@@ -133,11 +133,12 @@ export default function Home() {
                         </Link>
                     </div>
                     {/* Image */}
-                    <div className="order-1 md:order-2 relative h-[600px] w-full group overflow-hidden">
+                    <div className="order-1 md:order-2 relative h-[600px] w-full group overflow-hidden bg-gray-100 rounded-sm">
                         <Image
-                            src={heroImages[1]} // Second image
+                            src={bridalHero}
                             alt="Bridal Masterpiece"
                             fill
+                            placeholder="blur"
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
@@ -145,11 +146,12 @@ export default function Home() {
 
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-32">
                     {/* Image */}
-                    <div className="relative h-[600px] w-full group overflow-hidden">
+                    <div className="relative h-[600px] w-full group overflow-hidden bg-gray-100 rounded-sm">
                         <Image
-                            src={heroImages[2]} // Third image
+                            src={kidsHero}
                             alt="Kids Fashion"
                             fill
+                            placeholder="blur"
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>

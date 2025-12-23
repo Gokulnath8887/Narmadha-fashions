@@ -1,17 +1,26 @@
+
 'use client';
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
+// Static assets
+import product01 from '../../public/images/blouse-red-sleeve-05.jpg';
+import product02 from '../../public/images/blouse-cream-details-02.jpg';
+import product03 from '../../public/images/IMG-20251217-WA0009.jpg';
+import product04 from '../../public/images/IMG-20251217-WA0013.jpg';
+import product05 from '../../public/images/blouse-purple-work-03.jpg';
+import product06 from '../../public/images/blouse-cream-work-01.jpg';
+
 // Dummy product data
 const products = [
-    { id: 1, name: 'Royal Golden Aari Work', category: 'Blouses', image: '/images/IMG-20251217-WA0005.jpg', price: '₹12,000' },
-    { id: 2, name: 'Emerald Silk Embroidery', category: 'Blouses', image: '/images/IMG-20251217-WA0008.jpg', price: '₹15,000' },
-    { id: 3, name: 'Magenta Bridal Luxe', category: 'Blouses', image: '/images/IMG-20251217-WA0009.jpg', price: '₹18,500' },
-    { id: 4, name: 'Floral Motif Pattern', category: 'Blouses', image: '/images/IMG-20251217-WA0013.jpg', price: '₹9,500' },
-    { id: 5, name: 'Peacock Design Heavy', category: 'Blouses', image: '/images/IMG-20251217-WA0014.jpg', price: '₹22,000' },
-    { id: 6, name: 'Pastel Beadwork', category: 'Blouses', image: '/images/IMG-20251217-WA0006.jpg', price: '₹11,000' },
+    { id: 1, name: 'Royal Golden Aari Work', category: 'Blouses', image: product01, price: '₹12,000' },
+    { id: 2, name: 'Emerald Silk Embroidery', category: 'Blouses', image: product02, price: '₹15,000' },
+    { id: 3, name: 'Magenta Bridal Luxe', category: 'Blouses', image: product03, price: '₹18,500' },
+    { id: 4, name: 'Floral Motif Pattern', category: 'Blouses', image: product04, price: '₹9,500' },
+    { id: 5, name: 'Peacock Design Heavy', category: 'Blouses', image: product05, price: '₹22,000' },
+    { id: 6, name: 'Pastel Beadwork', category: 'Blouses', image: product06, price: '₹11,000' },
 ];
 
 const categories = ['All', 'Blouses', 'Frocks', 'Gowns', 'Sarees'];
@@ -56,11 +65,13 @@ export default function ProductsPage() {
                             viewport={{ once: true }}
                             className="group"
                         >
-                            <div className="relative h-[450px] w-full overflow-hidden bg-surface mb-6">
+                            <div className="relative h-[450px] w-full overflow-hidden bg-surface mb-6 rounded-sm">
                                 <Image
                                     src={product.image}
                                     alt={product.name}
                                     fill
+                                    placeholder="blur"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
                                 {/* Overlay on hover */}
