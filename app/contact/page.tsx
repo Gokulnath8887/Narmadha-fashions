@@ -24,20 +24,26 @@ export default function ContactPage() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    name: data.fullName,
+                    name: data.fullName, // mapping fullName to name
                     email: data.email,
                     phone: data.phone,
                     message: data.message,
                 }),
             });
 
-            if (!res.ok) throw new Error("Request failed");
+            const result = await res.json();
+
+            if (!res.ok) {
+                throw new Error(result.message || "Request failed");
+            }
 
             setIsSuccess(true);
             reset();
         } catch (error) {
             console.error("Submission error:", error);
-            alert("Something went wrong. Please try again later.");
+            // Optional: You could show a toast here using a toast library if available, 
+            // or just set an error state to display in UI.
+            alert("Something went wrong. Please check your connection and try again.");
         } finally {
             setIsSubmitting(false);
         }
