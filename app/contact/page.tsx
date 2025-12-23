@@ -13,17 +13,34 @@ type FormData = {
 };
 
 export default function ContactPage() {
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
 
     const onSubmit = async (data: FormData) => {
         setIsSubmitting(true);
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        console.log(data);
-        setIsSubmitting(false);
-        setIsSuccess(true);
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: data.fullName,
+                    email: data.email,
+                    phone: data.phone,
+                    message: data.message,
+                }),
+            });
+
+            if (!res.ok) throw new Error("Request failed");
+
+            setIsSuccess(true);
+            reset();
+        } catch (error) {
+            console.error("Submission error:", error);
+            alert("Something went wrong. Please try again later.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
