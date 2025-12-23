@@ -16,9 +16,25 @@ export async function POST(request: Request) {
             );
         }
 
+        const apiKey = process.env.RESEND_API_KEY;
+        const contactEmail = process.env.CONTACT_EMAIL;
+
+        console.log("Attempting to send email...");
+        console.log("API Key present:", !!apiKey);
+        console.log("Target Email:", contactEmail);
+        console.log("From: Narmadha Fashion Home <onboarding@resend.dev>");
+
+        if (!apiKey || !contactEmail) {
+            console.error("Missing Environment Variables");
+            return NextResponse.json(
+                { message: "Server misconfiguration: Missing invalid env vars" },
+                { status: 500 }
+            );
+        }
+
         const { data, error } = await resend.emails.send({
             from: "Narmadha Fashion Home <onboarding@resend.dev>",
-            to: [process.env.CONTACT_EMAIL as string],
+            to: [contactEmail],
             replyTo: email,
             subject: `New Enquiry from ${name}`,
             html: `
